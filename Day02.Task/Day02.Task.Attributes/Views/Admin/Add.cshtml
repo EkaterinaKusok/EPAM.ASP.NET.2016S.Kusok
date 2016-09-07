@@ -1,0 +1,20 @@
+﻿@model Day02.Task.Attributes.Models.User
+
+@{
+    ViewBag.Title = "Add user";
+
+<h3>Add User</h3>
+@using (Html.BeginForm())
+{
+    @Html.Hidden("Id", "1")
+    <table>
+        <tr>
+            <td><p>Input the name:</p></td>
+            <td><input type="text" name="Name" /> </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add user" /> </td>
+            <td></td>
+        </tr>
+    </table>
+}

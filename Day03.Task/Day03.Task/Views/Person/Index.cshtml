@@ -1,0 +1,17 @@
+﻿@model Day03.Task.Models.User
+
+@{
+    ViewBag.Title = "Personal Page";
+}
+
+@Html.Partial("Header", Model.Side)
+
+<h4>Personal Info: @Model.Name</h4>
+
+<br/>
+<br/>
+<h4>
+    Change side?
+    <input type="button" value="Yes" onclick="location.href = '@Url.Action("ChangeSide", "Person", Model)'"/>
+    <input type="button" value="No" onclick="location.href = ''" />
+</h4>

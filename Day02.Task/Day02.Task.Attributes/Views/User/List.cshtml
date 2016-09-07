@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Day02.Task.Attributes.Models.User>
+
+@{
+    ViewBag.Title = "Users list";
+}
+
+<h3>List of users</h3>
+<p>
+    @Html.ActionLink("Add new user", "Add-User")
+</p>
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+        </tr>
+    }
+</table>

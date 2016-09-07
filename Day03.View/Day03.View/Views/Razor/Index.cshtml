@@ -1,0 +1,11 @@
+﻿@model string[]
+
+@{
+    ViewBag.Title = "INdex";
+}
+
+This is a list of fruit names:
+@foreach (string name in Model)
+{
+    <span><b>@name</b></span>
+}

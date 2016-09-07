@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01.Routing", "Day01.Routing\Day01.Routing.csproj", "{CCD03768-0C4F-4439-B34A-8E5BAF4A3AAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day01.Routing.Tests", "Day01.Routing.Tests\Day01.Routing.Tests.csproj", "{B693F46A-A9D6-4693-AE0D-243331546CFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCD03768-0C4F-4439-B34A-8E5BAF4A3AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCD03768-0C4F-4439-B34A-8E5BAF4A3AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCD03768-0C4F-4439-B34A-8E5BAF4A3AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCD03768-0C4F-4439-B34A-8E5BAF4A3AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B693F46A-A9D6-4693-AE0D-243331546CFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B693F46A-A9D6-4693-AE0D-243331546CFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B693F46A-A9D6-4693-AE0D-243331546CFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B693F46A-A9D6-4693-AE0D-243331546CFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
