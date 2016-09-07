@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
-using Day02.Task.Attributes.Models;
+using Day02.Task.ControllerFactory.Models;
 
-namespace Day02.Task.Attributes.Infrastructure
+namespace Day02.Task.ControllerFactory.Infrastructure
 {
     public class UserRepository
     {

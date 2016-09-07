@@ -2,12 +2,10 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Day02.Task.Attributes.Models;
+using Day02.Task.ControllerFactory.Models;
 
-namespace Day02.Task.Attributes.Controllers
+namespace Day02.Task.ControllerFactory.Controllers
 {
-    [Route("User/{action}")]
-    [Route("Customer/{action}")]
     public class UserController : BaseController
     {
         [ActionName("Add-User")]
@@ -24,7 +22,7 @@ namespace Day02.Task.Attributes.Controllers
             await this.Repository.Add(user);
             return RedirectToAction("User-List");
         }
-
+        
         [ActionName("User-List")]
         [HttpGet]
         public ActionResult List()
