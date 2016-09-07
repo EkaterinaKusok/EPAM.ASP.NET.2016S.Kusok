@@ -1,14 +1,7 @@
-﻿@using Day03.Task.Models
-@model Day03.Task.Models.Side
+﻿@model string
 
-@{
-    if (Model == Side.white)
-    {
-        Layout = "~/Views/Shared/_LayoutLight.cshtml";
-    }
-    else
-    {
-        Layout = "~/Views/Shared/_LayoutDark.cshtml";
-    }
-}
-<h4>My side: @Model</h4>
+<div class="container">
+    <div class="header">
+        <h1>My side : @Model</h1>
+    </div>
+</div>

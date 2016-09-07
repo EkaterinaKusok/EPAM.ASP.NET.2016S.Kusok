@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 using Day03.Task.Models;
 
 namespace Day03.Task.Infrastructure
@@ -18,24 +16,33 @@ namespace Day03.Task.Infrastructure
             this.users.Add(new User()
             {
                 Id = "1",
-                Name = "Good man",
-                Side = Side.white
+                Name = "Yoda",
+                Side = Side.Light
             });
             this.users.Add(new User()
             {
                 Id = "2",
-                Name = "Bad man",
-                Side = Side.black
+                Name = "Darth Vader",
+                Side = Side.Dark
             });
         }
 
         public static UserRepository Instance => instance;
 
-        public void ChangeSide(User user, Side side)
+        public void ChangeSide(User user)
         {
-            var foundUser = users.SingleOrDefault( u => u.Id == user.Id);
-            if (foundUser != null)
-                foundUser.Side = side;
+            if (user != null)
+            {
+
+                Side newSide = Side.Dark;
+                if (user.Side == Side.Dark)
+                {
+                    newSide = Side.Light;
+                }
+                var foundUser = users.SingleOrDefault(u => u.Id == user.Id);
+                if (foundUser != null)
+                    foundUser.Side = newSide; //check!!!
+            }
         }
 
         public User GetById(string id)

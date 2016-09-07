@@ -9,7 +9,7 @@ namespace Day03.Task.Controllers
 {
     public class PersonController : BaseController
     {
-        public PersonController() : base() { }
+        //public PersonController() : base() { }
 
         public ActionResult Index(string id)
         {
@@ -25,16 +25,15 @@ namespace Day03.Task.Controllers
             return View(user);
         }
 
+        //[ChildActionOnly]
+        public ActionResult Footer(Side side)
+        {
+            return PartialView((object)side);
+        }
+
         public ActionResult ChangeSide(User user)
         {
-            if (user.Side == Side.white)
-            {
-                this.Repository.ChangeSide(user, Side.black);
-            }
-            else
-            {
-                this.Repository.ChangeSide(user,Side.white);
-            }
+            this.Repository.ChangeSide(user);
             return RedirectToAction("Index", user.Id);
         }
     }

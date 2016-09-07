@@ -15,7 +15,7 @@ namespace Day03.Task.Models
 
     public enum Side
     {
-        white,
-        black
+        Light,
+        Dark
     }
 }

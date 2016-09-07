@@ -4,14 +4,50 @@
     ViewBag.Title = "Personal Page";
 }
 
-@Html.Partial("Header", Model.Side)
+@section scripts
+{
+    <script>
+        $(function () {
+            var $body = $('body');
+            var $navBar = $('.navbar');
+            var $header = $('.header');
+            var side = '@Model.Side.ToString()';
 
-<h4>Personal Info: @Model.Name</h4>
+            if (side == 'Dark') {
+                $navBar.addClass('navbar-inverse');
+                $header.addClass('header-dark');
+                $body.addClass('dark');
+            }
+            else {
+                $navBar.addClass('navbar');
+                $header.addClass('header-light');
+                $body.deleteClass('dark');
+            }
+        });
 
-<br/>
-<br/>
-<h4>
-    Change side?
-    <input type="button" value="Yes" onclick="location.href = '@Url.Action("ChangeSide", "Person", Model)'"/>
-    <input type="button" value="No" onclick="location.href = ''" />
-</h4>
+        function SwitchSide(side){
+            if (side == "Dark"){
+                alert('LOL. There is no way out. PS your HR department has been contacted.');
+            }
+            else{
+                window.location.href = '@Url.Action("ChangeSide", "Person", @Model)';
+            }
+        }
+    </script>
+}
+@section header
+{
+    @Html.Partial("Header", @Model.Side.ToString())
+}
+@section body
+{
+    <div class="container">
+        <h2><b>Name : </b>@Model.Name</h2>
+    </div>
+}
+@section footer
+{
+    @Html.Action("Footer", "Person", new { side = @Model.Side })
+}
+
+
