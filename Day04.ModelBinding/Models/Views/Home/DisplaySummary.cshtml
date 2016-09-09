@@ -1,0 +1,20 @@
+﻿@model Models.Models.Address
+
+@{
+    ViewBag.Title = "Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Summary</h2>
+@using (Html.BeginForm("DisplaySummary","Home"))
+{
+    <div class="row">
+        @Html.LabelFor(m => m.City, new { @class = "col-xs-3" })
+        @Html.EditorFor(m => m.City, new { @class = "col-xs-4" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.Country, new { @class = "col-xs-3" })
+        @Html.EditorFor(m => m.Country, new { @class = "col-xs-4" })
+    </div>
+    <button name="submit">Submit</button>
+}
