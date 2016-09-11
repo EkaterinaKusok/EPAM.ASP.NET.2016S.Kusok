@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Configuration;
 using System.Web.Mvc;
 
 namespace Models.Infrastructure
@@ -10,7 +8,10 @@ namespace Models.Infrastructure
     {
         public override IValueProvider GetValueProvider(ControllerContext controllerContext)
         {
-            return new CountryValueProvider();
+            var provider = ConfigurationManager.AppSettings["ValueProvider"];
+            var targetType = Type.GetType(provider);
+            return (IValueProvider)Activator.CreateInstance(targetType, controllerContext);
+            //return new CountryValueProvider();
         }
     }
 }

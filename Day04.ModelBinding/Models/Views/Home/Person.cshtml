@@ -1,0 +1,21 @@
+﻿@model Models.Models.Person
+@{
+    ViewBag.Title = "Person";
+}
+
+<div class="container">
+    <div class="row"><h3>Person</h3></div>
+    <div class="row"><label>ID:</label> @Html.DisplayFor(m => m.PersonId)</div>
+    <div class="row"><label>First Name:</label> @Model.FirstName</div>
+    <div class="row"><label>Last Name:</label> @Model.LastName</div>
+    <div class="row"><label>Date of birth:</label> @Model.BirthDate</div>
+    <div class="row"><label>Role:</label> @Model.Role</div>
+
+    <div class="row"><h4>Adress</h4></div>
+    <div class="row"><label>Line 1:</label>@Model.HomeAddress.Line1</div>
+    <div class="row"><label>Line 2:</label> @Model.HomeAddress.Line2</div>
+    <div class="row"><label>City:</label> @Model.HomeAddress.City</div>
+    <div class="row"><label>Postal code:</label> @Model.HomeAddress.PostalCode</div>
+    <div class="row"><label>Country:</label> @Model.HomeAddress.Country</div>
+    <div class="row"><label>Address summary:</label> @Model.HomeAddress.AddressSummary</div>
+</div>

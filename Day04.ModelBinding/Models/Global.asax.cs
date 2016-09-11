@@ -15,9 +15,11 @@ namespace Models
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            ValueProviderFactories.Factories.Clear();
+            ValueProviderFactories.Factories.Add(new CustomValueProviderFactory());
+            ModelBinders.Binders.Add(typeof(Person), new PersonBinder());
 
             //ValueProviderFactories.Factories.Insert(0, new CustomValueProviderFactory());
-
             //ModelBinders.Binders.Add(typeof(Address), new AddressBinder());
         }
     }

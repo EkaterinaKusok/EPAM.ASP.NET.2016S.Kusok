@@ -2,15 +2,66 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
-<div class="container" >
-    
-    <div class="row"><h4>Person</h4></div>
-    <div class="row"><label>ID:</label> @Html.DisplayFor(m => m.PersonId)</div>
-    <div class="row"><label>First Name:</label> @Html.DisplayFor(m => m.FirstName)</div>
-    <div class="row"><label>Last Name:</label> @Html.DisplayFor(m => m.LastName)</div>
-    <div class="row"><label>Role:</label> @Html.DisplayFor(m => m.Role)</div>
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <h3>Personal info</h3>
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.PersonId, new { @class = "col-xs-3" })
+        @Html.EditorFor(m => m.PersonId, new { @class = "col-xs-4" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.FirstName, new { @class = "col-xs-3" })
+        @Html.EditorFor(m => m.FirstName, new { @class = "col-xs-4" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.LastName, new {@class = "col-xs-3"})
+        @Html.EditorFor(m => m.LastName, new {@class = "col-xs-4"})
+    </div>
 
-</div>
+    <div class="row">
+        @Html.LabelFor(m => m.BirthDate, "Date of birth", new {@class = "col-xs-3"})
+        @Html.TextBoxFor(m => m.BirthDate, new { @class = "col-xs-4", @placeholder = "yyyy-mm-dd"})
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label col-md-2">Role:</label>
+        <div class="col-md-10">
+            <select name="Role" class="form-control">
+                <option></option>
+                <option>Admin</option>
+                <option>User</option>
+                <option>Guest</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <h3>Address</h3>
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.HomeAddress.Line1, new {@class = "col-xs-3"})
+        @Html.EditorFor(m => m.HomeAddress.Line1, new {@class = "col-xs-4"})
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.HomeAddress.Line2, new { @class = "col-xs-3" })
+        @Html.EditorFor(m => m.HomeAddress.Line2, new { @class = "col-xs-4" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.HomeAddress.City, new {@class = "col-xs-3"})
+        @Html.EditorFor(m => m.HomeAddress.City, new {@class = "col-xs-4"})
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.HomeAddress.PostalCode, new { @class = "col-xs-3" })
+        @Html.EditorFor(m => m.HomeAddress.PostalCode, new { @class = "col-xs-4" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(m => m.HomeAddress.Country, new { @class = "col-xs-3" })
+        @Html.EditorFor(m => m.HomeAddress.Country, new { @class = "col-xs-4" })
+    </div>
+    <button name="submit">Submit</button>
+}

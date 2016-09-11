@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Models.Data;
+using Models.Infrastructure;
 using Models.Models;
 
 namespace Models.Controllers
@@ -18,10 +19,41 @@ namespace Models.Controllers
 		    _repo = personRepo;
 	    }
 
-        public ActionResult Index(int id = 1)
+        public ActionResult Index()
         {
-	        var person = _repo.GetAll().First(p => p.PersonId == id);
-			return View(person);
+            var isFormProvider = ((IEnumerable<IValueProvider>)ControllerContext.Controller.ValueProvider).OfType<CustomFormValueProvider>().Count() > 0;
+            if (isFormProvider)
+            {
+                ViewBag.Action = "Index";
+                ViewBag.Method = FormMethod.Post;
+            }
+            else
+            {
+                ViewBag.Action = "IndexGet";
+                ViewBag.Method = FormMethod.Get;
+            }
+            return View(new Person());
+        }
+
+        [HttpPost]
+        public ActionResult Index(Person model)
+        {
+            return View("Person", model);
+        }
+
+        public ActionResult IndexGet()
+        {
+            var model = new Person();
+            if (TryUpdateModel(model))
+            {
+                return View("Person", model);
+            }
+            return View("Index", model);
+        }
+
+        public ActionResult Person(Person model)
+        {
+            return View(model);
         }
 
         public ActionResult CreatePerson()
