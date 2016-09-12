@@ -1,4 +1,5 @@
-﻿@model Models.Models.Person
+﻿@using Models.Models
+@model Models.Models.Person
 
 @{
     ViewBag.Title = "Index";
@@ -26,17 +27,12 @@
         @Html.LabelFor(m => m.BirthDate, "Date of birth", new {@class = "col-xs-3"})
         @Html.TextBoxFor(m => m.BirthDate, new { @class = "col-xs-4", @placeholder = "yyyy-mm-dd"})
     </div>
-    
-    <div class="form-group">
-        <label class="control-label col-md-2">Role:</label>
-        <div class="col-md-10">
-            <select name="Role" class="form-control">
-                <option></option>
-                <option>Admin</option>
-                <option>User</option>
-                <option>Guest</option>
-            </select>
-        </div>
+
+    <div class="row">
+        @Html.LabelFor(m => m.Role, new { @class = "col-xs-3" })
+        @Html.RadioButtonFor(m => m.Role, "Guest")
+        @Html.RadioButtonFor(m => m.Role, Role.User.ToString())
+        @Html.RadioButtonFor(m => m.Role, Role.Admin.ToString())
     </div>
 
 
